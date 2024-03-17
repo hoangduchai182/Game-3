@@ -1,16 +1,15 @@
 import { Egg } from './egg.js';
-import { Larva } from './larva.js';
 import { Obstacle } from './obstacle.js';
 import { Enemy } from './enemy.js';
-import { Firefly } from './baloon.js';
-import { Spark } from './baloon.js';
-import { Particle } from './particle.js';
 
 window.addEventListener('load', function () {
   const canvas = document.getElementById('canvas1');
   const ctx = canvas.getContext('2d');
-  canvas.width = 1280;
-  canvas.height = 720;
+  const overlay = document.getElementById('overlay');
+  canvas.width = 1280 / 1.28;
+  canvas.height = (canvas.width / 1280) * 720;
+  overlay.width = canvas.width;
+  overlay.height = canvas.height;
 
   ctx.fillStyle = 'white';
   ctx.lineWidth = 3;
@@ -23,7 +22,7 @@ window.addEventListener('load', function () {
       this.game = game;
       this.collisionX = this.game.width * 0.5;
       this.collisionY = this.game.height * 0.5;
-      this.collisionRadius = 30;
+      this.collisionRadius = 30 / 1.28;
       this.speedX = 0;
       this.speedY = 0;
       this.dx = 0;
@@ -31,8 +30,8 @@ window.addEventListener('load', function () {
       this.speedModifier = 3;
       this.spriteWidth = 255;
       this.spriteHeight = 256;
-      this.width = this.spriteWidth;
-      this.height = this.spriteHeight;
+      this.width = this.spriteWidth / 1.28;
+      this.height = this.spriteHeight / 1.28;
       this.spriteX;
       this.spriteY;
       this.frameX = 0;
@@ -108,7 +107,7 @@ window.addEventListener('load', function () {
       this.collisionY += this.speedY * this.speedModifier;
 
       this.spriteX = this.collisionX - this.width * 0.5;
-      this.spriteY = this.collisionY - this.height * 0.5 - 100;
+      this.spriteY = this.collisionY - this.height * 0.5 - 60;
 
       //Giới hạn khung hình không cho player ra khỏi rìa màn hình
       if (this.collisionX < this.collisionRadius) {
@@ -145,7 +144,7 @@ window.addEventListener('load', function () {
       this.width = this.canvas.width;
       this.height = this.canvas.height;
       this.topMargin = 260;
-      this.debug = true;
+      this.debug = false;
       this.player = new Player(this);
       this.fps = 70;
       this.timer = 0;
@@ -161,7 +160,7 @@ window.addEventListener('load', function () {
       this.hatchings = [];
       this.particles = [];
       this.score = 0;
-      this.winningScore = 1;
+      this.winningScore = 20;
       this.gameOver = false;
       this.lostHatchling = 0;
       this.mouse = {

@@ -1,14 +1,13 @@
 export class Enemy {
   constructor(game) {
     this.game = game;
-    this.collisionRadius = 30;
-
-    this.speedX = Math.random() * 3 + 5;
+    this.collisionRadius = 30 / 1.28;
+    this.speedX = Math.random() * 3 + 1;
     this.image = document.getElementById('toads');
     this.spriteWidth = 140;
     this.spriteHeight = 260;
-    this.width = this.spriteWidth;
-    this.height = this.spriteHeight;
+    this.width = this.spriteWidth / 1.28;
+    this.height = this.spriteHeight / 1.28;
     this.collisionX =
       this.game.width + this.width + Math.random() * this.game.width * 0.5;
     this.collisionY =
@@ -49,7 +48,7 @@ export class Enemy {
   }
   update(deltaTime) {
     this.spriteX = this.collisionX - this.width * 0.5;
-    this.spriteY = this.collisionY - this.height * 0.5 - 40;
+    this.spriteY = this.collisionY - this.height * 0.5 - 60;
     this.collisionX -= this.speedX;
     if (this.spriteX + this.width < 0 && !this.game.gameOver) {
       this.collisionX =

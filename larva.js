@@ -1,16 +1,16 @@
-import { Firefly } from './baloon.js';
+import { Firefly, Spark } from './baloon.js';
 
 export class Larva {
   constructor(game, x, y) {
     this.game = game;
     this.collisionX = x;
     this.collisionY = y;
-    this.collisionRadius = 30;
+    this.collisionRadius = 30 / 1.28;
     this.image = document.getElementById('larva');
     this.spriteWidth = 150;
     this.spriteHeight = 150;
-    this.width = this.spriteWidth;
-    this.height = this.spriteHeight;
+    this.width = this.spriteWidth / 1.28;
+    this.height = this.spriteHeight / 1.28;
     this.spriteX;
     this.spriteY;
     this.speedY = 1 + Math.random();

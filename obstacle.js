@@ -3,12 +3,12 @@ export class Obstacle {
     this.game = game;
     this.collisionX = Math.random() * this.game.width;
     this.collisionY = Math.random() * this.game.height;
-    this.collisionRadius = 40;
+    this.collisionRadius = 40 / 1.28;
     this.image = document.getElementById('obstacles');
     this.spriteWidth = 250;
     this.spriteHeight = 250;
-    this.width = this.spriteWidth;
-    this.height = this.spriteHeight;
+    this.width = this.spriteWidth / 1.28;
+    this.height = this.spriteHeight / 1.28;
     this.spriteX = this.collisionX - this.width * 0.5;
     this.spriteY = this.collisionY - this.height * 0.5 - 70;
     this.frameX = Math.floor(Math.random() * 4);

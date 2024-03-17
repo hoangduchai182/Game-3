@@ -3,7 +3,7 @@ import { Larva } from './larva.js';
 export class Egg {
   constructor(game) {
     this.game = game;
-    this.collisionRadius = 40;
+    this.collisionRadius = 40 / 1.28;
     this.margin = this.collisionRadius * 2;
     this.collisionX =
       this.margin + Math.random() * (this.game.width - this.margin * 2);
@@ -13,8 +13,8 @@ export class Egg {
     this.image = document.getElementById('egg');
     this.spriteWidth = 110;
     this.spriteHeight = 135;
-    this.width = this.spriteWidth;
-    this.height = this.spriteHeight;
+    this.width = this.spriteWidth / 1.28;
+    this.height = this.spriteHeight / 1.28;
     this.spriteX;
     this.spriteY;
     this.hatchTimer = 0;
@@ -47,8 +47,8 @@ export class Egg {
   }
 
   update(deltaTime) {
-    this.spriteX = this.collisionX - this.width * 0.5;
-    this.spriteY = this.collisionY - this.height * 0.5 - 30;
+    this.spriteX = this.collisionX - this.width * 0.5 - 10;
+    this.spriteY = this.collisionY - this.height * 0.5 - 50;
 
     // coliision
     let collisionObject = [
